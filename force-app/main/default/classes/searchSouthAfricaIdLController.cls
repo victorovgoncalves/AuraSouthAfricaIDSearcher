@@ -1,3 +1,15 @@
+/*
+Name: searchSouthAfricaIdLControllerTest
+Purpose: Apex controller of Aura Component searchSouthAfricaIdInHolidays
+Author: Victor Gonçalves
+Date: 2021-07-09
+
+Change Log
+2021/07/09 - Victor Gonçalves - searchSouthAfricaIdNumber convert the contactSouthAfricaIdNumber extracted data into contact records, filling standard and custom fields.
+2021/07/09 - Victor Gonçalves - getRecordHolidaysByCallout sends callout to get holiday dates based on contact (contactSouthAfricaIdNumber) Birth Day
+2021/07/09 - Victor Gonçalves - insertHolidayRecords get the callout data (holidayList) and create Public_Holidays__c records, associated to contacts (contactSouthAfricaIdNumbers)
+2021/07/09 - Victor Gonçalves - calloutRequestSync helps the callout of getRecordHolidaysByCallout method
+*/
 public class searchSouthAfricaIdLController {
 @AuraEnabled
     public static Contact searchSouthAfricaIdNumber(Decimal contactSouthAfricaIdNumber,String contactBirthdayDate, String contactGender, String contactCitizen){        

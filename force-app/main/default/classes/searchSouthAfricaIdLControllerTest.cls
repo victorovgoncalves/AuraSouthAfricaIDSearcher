@@ -1,3 +1,12 @@
+/*
+Name: searchSouthAfricaIdLControllerTest
+Purpose: test all methods of searchSouthAfricaIdLController apex class 
+Author: Victor Gonçalves
+Date: 2021-07-09
+
+Change Log
+2021/07/09 - Victor Gonçalves - searchSouthAfricaId() method created
+*/
 @isTest
 public class searchSouthAfricaIdLControllerTest {
     
