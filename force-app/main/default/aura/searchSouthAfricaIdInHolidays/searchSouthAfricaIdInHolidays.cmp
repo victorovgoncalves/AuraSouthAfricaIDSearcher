@@ -1,0 +1,55 @@
+<aura:component controller="searchSouthAfricaIdLController" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction,lightning:availableForFlowScreens,force:appHostable" access="global" >
+    <aura:attribute name="inputSouthAfricaIdNumber" type="String"/>
+    <aura:attribute name="inputBirthdate" type="Date"/>
+    <aura:attribute name="inputGender" type="String"/>
+    <aura:attribute name="inputCitizenship" type="String"/>
+    <aura:attribute name="outputSouthAfricaIdNumber" type="String"/>
+    <aura:attribute name="outputBirthdate" type="Date"/>
+    <aura:attribute name="outputGender" type="String"/>
+    <aura:attribute name="outputCitizenship" type="String"/>
+    <aura:attribute name="outputTimesSearched" type="Integer"/>
+    <aura:attribute name="hideSearchButton" type="Boolean" default="true"/>
+    <aura:attribute name="hideContactFromDatabase" type="Boolean" default="true"/>
+    <aura:attribute name="recordId" type="Id"/>
+
+    <lightning:card footer="Insert your South Africa Id Number and click in the Search button to check if there are any important public holidays on your date of birth." title="Search South Africa Id Number" class="slds-size_medium">
+        
+        <div>
+            <lightning:input pattern="[0-9]{13}" type="text" label="South Africa Id Number" value="{!v.inputSouthAfricaIdNumber}" onchange="{!c.changedSouthAfricaIdNumber}" maxlength = "13" minlength = "13" required="true" messageWhenValueMissing="Complete this field."></lightning:input>
+        </div>
+        
+        <!-- <aura:if isTrue="{!not(v.hideSearchButton)}">
+             <lightning:input type="date" label="Birthdate" value="{!v.inputBirthdate}" onchange="{!c.changedBirthdate}" disabled="true"></lightning:input>
+            <lightning:input type="text" label="Gender" value="{!v.inputGender}" onchange="{!c.changedGender}" disabled="true"></lightning:input>
+            <lightning:input type="text" label="Citizenship" value="{!v.inputCitizenship}" onchange="{!c.changedCitizenship}" disabled="true"></lightning:input>  
+        </aura:if> -->
+        <div style="height:10px"></div>
+        <lightning:button class="slds-align_absolute-center" variant="brand" label="Search" title="Search South Africa Id Number" onclick="{!c.searchId}" disabled="{!v.hideSearchButton}"/>
+        
+    </lightning:card>
+    
+    <aura:if isTrue="{!not(v.hideContactFromDatabase)}">
+        <lightning:card title="Search Results">
+            
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_1-of-5">
+                        <lightning:input pattern="[0-9]{13}" type="text" label="South Africa Id Number" value="{!v.outputSouthAfricaIdNumber}" disabled="true"></lightning:input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-5">
+                        <lightning:input type="date" label="Birthdate" value="{!v.outputBirthdate}" disabled="true"></lightning:input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-5">
+                        <lightning:input type="text" label="Gender" value="{!v.outputGender}" disabled="true"></lightning:input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-5">
+                        <lightning:input type="text" label="Citizenship" value="{!v.outputCitizenship}" disabled="true"></lightning:input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-5">
+                        <lightning:input type="text" label="Times Searched" value="{!v.outputTimesSearched}" disabled="true"></lightning:input>
+                    </div>
+                </div>
+            
+        </lightning:card>
+    </aura:if>
+    
+</aura:component>
